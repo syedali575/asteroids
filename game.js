@@ -5,6 +5,13 @@
 
     // Create your "ship" object and any other variables you might need...
 
+    var ship = {
+      htmlElem: shipElem,
+      velocity: 0,
+      angle: 0
+    }
+
+    console.log(ship);
 
     var allAsteroids = [];
     shipElem.addEventListener('asteroidDetected', function (event) {
@@ -29,6 +36,9 @@
      */
     function handleKeys(event) {
         console.log(event.keyCode);
+        if (keyCode === 37) {
+        console.log("Key 37");
+};
 
         // Implement me!
 
