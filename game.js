@@ -36,9 +36,12 @@
      */
     function handleKeys(event) {
         console.log(event.keyCode);
-        if (keyCode === 37) {
-        console.log("Key 37");
-};
+        if (event.keyCode === 37) {
+          ship.htmlElem.style.transform = "rotate(-90deg)";
+        }
+        // else if (event.keyCode === 38){
+        //   ship.htmlElem.style.transform = "rotate(-180deg)"
+        // }
 
         // Implement me!
 
@@ -58,7 +61,7 @@
         // NOTE: you will need to change these arguments to match your ship object!
         // What does this function return? What will be in the `move` variable?
         // Read the documentation!
-        var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
+//var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
 
 
         // Move the ship here!
