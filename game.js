@@ -5,11 +5,13 @@
 
     // Create your "ship" object and any other variables you might need...
 
-    var ship = {
-      htmlElem: shipElem,
-      velocity: 0,
-      angle: 0
-    }
+
+var ship = {
+  htmlElem: shipElem,
+  velocity: 0,
+  angle: 0
+}
+
 
     console.log(ship);
 
@@ -35,34 +37,38 @@
      * @return {void}          In other words, no need to return anything
      */
     function handleKeys(event) {
+        // console.log(event.keyCode);
         console.log(event.keyCode);
-
   // Turn Left
+
         if (event.keyCode === 37) {
           ship.angle -= 5;
-          ship.htmlElem.style.transform = "rotate(" + ship.angle + "deg)";
+          console.log("hello");
+          // ship.htmlElem.style.transform = "rotate(90deg)";
+          // console.log(ship.angle);
+          ship.htmlElem.style.transform = "rotate("+ship.angle+"deg)";
+          console.log(ship.htmlElem.style.transform);
         }
+
+
   // Turn Right
+
+
         else if (event.keyCode === 39) {
           ship.angle += 5;
-          ship.htmlElem.style.transform = "rotate(" + ship.angle + "deg)";
+          console.log(ship.angle);
+          ship.htmlElem.style.transform = "rotate("+ship.angle+"deg)";
+
         }
+
 
 // Move forward
+
         else if (event.keyCode === 38) {
-          ship.velocity += 5;
-          var shipMove = getShipMovement(ship.velocity, ship.angle);
-          console.log("shipMove",shipMove);
-          ship.htmlElem.style.top = "" + shipMove.top + "px";
-          ship.htmlElem.style.left = "" + shipMove.left + "px";
-          console.log(ship);
-
-          // ship.htmlElem.style.position = ;
+          ship.velocity -=5;
+          console.log(ship.velocity);
+          ship.htmlElem.style.top = ""+ship.velocity+"px";
         }
-
-
-
-
 
         // Implement me!
 
@@ -82,7 +88,13 @@
         // NOTE: you will need to change these arguments to match your ship object!
         // What does this function return? What will be in the `move` variable?
         // Read the documentation!
-// var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
+  // var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
+
+        var move = getShipMovement(ships.velocity, ship.angle);
+        var currentTop = ship.htmlElem.style.top;
+        console.log(currentTop);
+
+
 
 
         // Move the ship here!
