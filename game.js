@@ -12,17 +12,29 @@ var ship = {
   angle: 0
 }
 
+ship.htmlElem.style.top = "500px";
+console.log(ship.htmlElem.style.top);
+ship.htmlElem.style.left = "450px";
+console.log(ship.htmlElem.style.left);
 
-    console.log(ship);
+
+
+
+    // console.log(ship);
 
     var allAsteroids = [];
+
     shipElem.addEventListener('asteroidDetected', function (event) {
         // You can detect when a new asteroid appears with this event.
         // The new asteroid's HTML element will be in:  event.detail
 
         // What might you need/want to do in here?
 
+      allAsteroids.push(event.detail.aside);
+      console.log(allAsteroids, "adding asteroids to array");
     });
+
+
 
     /**
      * Use this function to handle when a key is pressed. Which key? Use the
@@ -42,8 +54,8 @@ var ship = {
   // Turn Left
 
         if (event.keyCode === 37) {
-          ship.angle -= 5;
-          console.log("hello");
+          ship.angle -= 2;
+          console.log(ship.angle,"turn left");
           // ship.htmlElem.style.transform = "rotate(90deg)";
           // console.log(ship.angle);
           ship.htmlElem.style.transform = "rotate("+ship.angle+"deg)";
@@ -55,8 +67,8 @@ var ship = {
 
 
         else if (event.keyCode === 39) {
-          ship.angle += 5;
-          console.log(ship.angle);
+          ship.angle += 2;
+          console.log(ship.angle, "turn right");
           ship.htmlElem.style.transform = "rotate("+ship.angle+"deg)";
 
         }
@@ -65,10 +77,23 @@ var ship = {
 // Move forward
 
         else if (event.keyCode === 38) {
-          ship.velocity -=5;
-          console.log(ship.velocity);
-          ship.htmlElem.style.top = ""+ship.velocity+"px";
+          ship.velocity += 1;
+          console.log(ship.velocity, "forward speed");
+
         }
+
+
+// Reduce Velocity
+
+
+      else if (event.keyCode === 40) {
+        ship.velocity -= 1;
+        console.log(ship.velocity, "slow down");
+      }
+
+
+
+
 
         // Implement me!
 
@@ -83,18 +108,20 @@ var ship = {
      *
      * @return {void}
      */
+
+
+
+
+
     function gameLoop() {
         // This function for getting ship movement is given to you (at the bottom).
         // NOTE: you will need to change these arguments to match your ship object!
         // What does this function return? What will be in the `move` variable?
         // Read the documentation!
-  // var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
+        var move = getShipMovement(ship.velocity, ship.angle);
 
-        var move = getShipMovement(ships.velocity, ship.angle);
-        var currentTop = ship.htmlElem.style.top;
-        console.log(currentTop);
-
-
+        ship.htmlElem.style.top = move.top - parseInt(ship.htmlElem.style.top)+"px";
+        ship.htmlElem.style.left = move.left + parseInt(ship.htmlElem.style.left)+"px";
 
 
         // Move the ship here!
@@ -102,6 +129,8 @@ var ship = {
 
         // Time to check for any collisions (see below)...
         checkForCollisions();
+
+
     }
 
     /**
@@ -120,6 +149,9 @@ var ship = {
      */
     function checkForCollisions() {
 
+      // console.log("I am in checkForCollisions");
+
+
         // Implement me!
 
     }
@@ -132,6 +164,9 @@ var ship = {
      */
     document.querySelector('main').addEventListener('crash', function () {
         console.log('A crash occurred!');
+
+
+
 
         // What might you need/want to do in here?
 
@@ -175,7 +210,7 @@ var ship = {
     function getShipMovement(velocity, angle) {
         return {
             left: (velocity * Math.sin(angle * Math.PI / 180)),
-            top: (velocity * Math.cos(angle * Math.PI / 180))
+            top: (velocity * Math.cos(angle * Math.PI / 180)),
         };
     }
 
