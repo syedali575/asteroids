@@ -24,6 +24,9 @@ console.log(ship.htmlElem.style.left);
 
     var allAsteroids = [];
 
+
+
+
     shipElem.addEventListener('asteroidDetected', function (event) {
         // You can detect when a new asteroid appears with this event.
         // The new asteroid's HTML element will be in:  event.detail
@@ -31,8 +34,12 @@ console.log(ship.htmlElem.style.left);
         // console.log(event.detail);
         // What might you need/want to do in here?
 
-      allAsteroids.push(event.detail.aside);
-      console.log(allAsteroids, "adding asteroids to array");
+
+      allAsteroids.push(event.detail);
+
+      // console.log(allAsteroids);
+
+
     });
 
 
@@ -51,7 +58,7 @@ console.log(ship.htmlElem.style.left);
      */
     function handleKeys(event) {
         // console.log(event.keyCode);
-        console.log(event.keyCode);
+        // console.log(event.keyCode);
   // Turn Left
 
         if (event.keyCode === 37) {
@@ -60,7 +67,7 @@ console.log(ship.htmlElem.style.left);
           // ship.htmlElem.style.transform = "rotate(90deg)";
           // console.log(ship.angle);
           ship.htmlElem.style.transform = "rotate("+ship.angle+"deg)";
-          console.log(ship.htmlElem.style.transform);
+          // console.log(ship.htmlElem.style.transform);
         }
 
 
@@ -150,18 +157,19 @@ console.log(ship.htmlElem.style.left);
      */
     function checkForCollisions() {
 
-      // console.log(allAsteroids[].getBoundingClientRect());
 
 
 
+      ship.htmlElem.getBoundingClientRect();
       // console.log(ship.htmlElem.getBoundingClientRect());
-      var spaceShip = ship.htmlElem.getBoundingClientRect();
-      // console.log(spaceShip.left);
-      // console.log(spaceShip.right);
+      // var spaceShip = ship.htmlElem.getBoundingClientRect();
+      // // console.log(spaceShip.left, spaceShip.right);
+      allAsteroids[0].getBoundingClientRect();
+      // console.log(allAsteroids[0].getBoundingClientRect());
+
+      console.log(ship.htmlElem.ClientRect.top);
 
 
-      // console.log(ship.htmlElem.height);
-      // console.log(allAsteroids[1].getBoundingClientRect());
 
 
 
