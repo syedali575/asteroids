@@ -28,6 +28,7 @@ console.log(ship.htmlElem.style.left);
         // You can detect when a new asteroid appears with this event.
         // The new asteroid's HTML element will be in:  event.detail
 
+        // console.log(event.detail);
         // What might you need/want to do in here?
 
       allAsteroids.push(event.detail.aside);
@@ -149,7 +150,20 @@ console.log(ship.htmlElem.style.left);
      */
     function checkForCollisions() {
 
-      // console.log("I am in checkForCollisions");
+      // console.log(allAsteroids[].getBoundingClientRect());
+
+
+
+      // console.log(ship.htmlElem.getBoundingClientRect());
+      var spaceShip = ship.htmlElem.getBoundingClientRect();
+      // console.log(spaceShip.left);
+      // console.log(spaceShip.right);
+
+
+      // console.log(ship.htmlElem.height);
+      // console.log(allAsteroids[1].getBoundingClientRect());
+
+
 
 
         // Implement me!
