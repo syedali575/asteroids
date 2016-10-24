@@ -189,7 +189,7 @@ console.log(ship.htmlElem.style.left);
         }
 
         else if (shipCoordinates.top > allAsteroids[i].getBoundingClientRect().bottom) {
-          console.log("HIT");
+          console.log("NO HIT");
         }
         else  {
           crash(allAsteroids[i]);
