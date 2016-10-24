@@ -177,24 +177,21 @@ console.log(ship.htmlElem.style.left);
         console.log(allAsteroids[i].getBoundingClientRect().left);
 
         if (shipCoordinates.right < allAsteroids[i].getBoundingClientRect().left) {
-          console.log("HIT");
+          console.log("NO HIT");
         }
 
         else if (shipCoordinates.left > allAsteroids[i].getBoundingClientRect().right) {
-          // crash(allAsteroids[i]);
-          console.log("HIT");
+          console.log("NO HIT");
         }
 
         else if (shipCoordinates.bottom < allAsteroids[i].getBoundingClientRect().top) {
-          // crash(allAsteroids[i]);
-          console.log("HIT");
+          console.log("NO HIT");
         }
 
         else if (shipCoordinates.top > allAsteroids[i].getBoundingClientRect().bottom) {
-          // crash(allAsteroids[i]);
           console.log("HIT");
         }
-        else if {
+        else  {
           crash(allAsteroids[i]);
         }
 
