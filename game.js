@@ -160,14 +160,48 @@ console.log(ship.htmlElem.style.left);
 
 
 
-      ship.htmlElem.getBoundingClientRect();
-      // console.log(ship.htmlElem.getBoundingClientRect());
+      var shipCoordinates = ship.htmlElem.getBoundingClientRect();
+      // console.log(shipCoordinates);
       // var spaceShip = ship.htmlElem.getBoundingClientRect();
       // // console.log(spaceShip.left, spaceShip.right);
-      allAsteroids[0].getBoundingClientRect();
       // console.log(allAsteroids[0].getBoundingClientRect());
+      for (var i = 0; i < allAsteroids.length; i++) {
+        allAsteroids[i].getBoundingClientRect();
 
-      console.log(ship.htmlElem.ClientRect.top);
+        // console.log(shipCoordinates.right);
+        // console.log(allAsteroids[i].getBoundingClientRect());
+        // console.log(allAsteroids[i].getBoundingClientRect().right);
+
+
+        console.log(shipCoordinates.right);
+        console.log(allAsteroids[i].getBoundingClientRect().left);
+
+        if (shipCoordinates.right < allAsteroids[i].getBoundingClientRect().left) {
+          console.log("HIT");
+        }
+
+        else if (shipCoordinates.left > allAsteroids[i].getBoundingClientRect().right) {
+          // crash(allAsteroids[i]);
+          console.log("HIT");
+        }
+
+        else if (shipCoordinates.bottom < allAsteroids[i].getBoundingClientRect().top) {
+          // crash(allAsteroids[i]);
+          console.log("HIT");
+        }
+
+        else if (shipCoordinates.top > allAsteroids[i].getBoundingClientRect().bottom) {
+          // crash(allAsteroids[i]);
+          console.log("HIT");
+        }
+        else if {
+          crash(allAsteroids[i]);
+        }
+
+      }
+
+
+      // console.log(ship.htmlElem.ClientRect.top);
 
 
 
